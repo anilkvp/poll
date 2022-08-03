@@ -1,0 +1,15 @@
+/bin
+/include
+/lib
+lib64
+/lib64
+/venv
+/poll/
+__pycache__/
+migrations/
+/db.sqlite3
+geckodriver.log
+pyvenv.cfg
+*.pyc
+*.pyo
+.idea

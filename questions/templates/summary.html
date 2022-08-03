@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<script type="text/javascript" src="/static/js/chartjs/chart.min.js"></script>
+<script>
+var config = {
+    type: 'pie',
+    data: {
+        datasets: [{
+            data: {{ data|safe }},
+            backgroundColor: ['#2596be', '#e68e4e'],
+            label: 'Poll result'
+        }],
+        labels: {{ labels|safe }}
+        },
+        options: {
+            responsive: true,
+        }
+    };
+  window.onload = function() {
+    var ctx = document.getElementById('pie-chart').getContext('2d');
+    window.myPie = new Chart(ctx, config);
+};
+</script>
+<div class="row">
+  <div class="col">
+    <h3># {{ question.question_text }}</h3>
+  </div>
+  <div class="col">
+     <canvas height="500" id="pie-chart"></canvas>
+   </div>
+</div>
+{% endblock %}
